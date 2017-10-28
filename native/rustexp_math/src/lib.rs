@@ -15,7 +15,11 @@ mod atoms {
 
 rustler_export_nifs! {
     "Elixir.RustExp.Math",
-    [("add", 2, add)],
+    [
+        ("add", 2, add),
+        ("multiply", 2, multiply)
+    
+    ],
     None
 }
 
@@ -24,4 +28,11 @@ fn add<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let num2: i64 = try!(args[1].decode());
 
     Ok((atoms::ok(), num1 + num2).encode(env))
+}
+
+fn multiply<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let num1: i64 = try!(args[0].decode());
+    let num2: i64 = try!(args[1].decode());
+
+    Ok((atoms::ok(), num1 * num2).encode(env))
 }
