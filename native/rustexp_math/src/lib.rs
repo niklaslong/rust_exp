@@ -19,7 +19,8 @@ rustler_export_nifs! {
         ("add", 2, add),
         ("subtract", 2, subtract),
         ("multiply", 2, multiply),
-        ("divide", 2, divide)
+        ("divide", 2, divide),
+        ("repeat", 1, repeat)
     
     ],
     None
@@ -51,4 +52,10 @@ fn subtract<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>>
     let num2: i64 = try!(args[1].decode());
 
     Ok((atoms::ok(), num1 - num2).encode(env))
+}
+
+fn repeat<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let str1: String = try!(args[0].decode());
+
+    Ok((atoms::ok(), str1).encode(env))
 }
