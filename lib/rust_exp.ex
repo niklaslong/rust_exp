@@ -23,5 +23,5 @@ defmodule RustExp.Math do
   def add(_a, _b), do: err()
   def subtract(_a, _b), do: err()
   def multiply(_a, _b), do: err()
-  def devide(_a, _b), do: err()
+  def divide(_a, _b), do: err()
 end

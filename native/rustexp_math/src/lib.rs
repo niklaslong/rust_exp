@@ -19,7 +19,7 @@ rustler_export_nifs! {
         ("add", 2, add),
         ("subtract", 2, subtract),
         ("multiply", 2, multiply),
-        ("devide", 2, devide)
+        ("divide", 2, divide)
     
     ],
     None
@@ -39,7 +39,7 @@ fn multiply<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>>
     Ok((atoms::ok(), num1 * num2).encode(env))
 }
 
-fn devide<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+fn divide<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let num1: i64 = try!(args[0].decode());
     let num2: i64 = try!(args[1].decode());
 
