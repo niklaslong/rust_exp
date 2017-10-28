@@ -8,7 +8,8 @@ defmodule RustExp.Mixfile do
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
       deps: deps(),
-      compilers: [:rustler] ++ Mix.compilers()
+      compilers: [:rustler] ++ Mix.compilers(),
+      rustler_crates: rustler_crates()
     ]
   end
 
@@ -26,5 +27,12 @@ defmodule RustExp.Mixfile do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       {:rustler, "~> 0.10.1"}
     ]
+  end
+
+  defp rustler_crates do 
+    [math: [
+      path: "native/rustexp_math",
+      mode: (if Mix.env == :prod, do: :release, else: :debug),
+    ]]
   end
 end
