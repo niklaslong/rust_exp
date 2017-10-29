@@ -20,7 +20,8 @@ rustler_export_nifs! {
         ("subtract", 2, subtract),
         ("multiply", 2, multiply),
         ("divide", 2, divide),
-        ("repeat", 1, repeat)
+        ("repeat", 1, repeat),
+        ("put_string", 1, put_string)
     
     ],
     None
@@ -58,4 +59,11 @@ fn repeat<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let str1: String = try!(args[0].decode());
 
     Ok((atoms::ok(), str1).encode(env))
+}
+
+fn put_string<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let str1: String = try!(args[0].decode());
+    let result: String = format!("You said: {}", str1);
+
+    Ok((atoms::ok(), result).encode(env))
 }

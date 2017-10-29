@@ -25,4 +25,5 @@ defmodule RustExp.Math do
   def multiply(_a, _b), do: err()
   def divide(_a, _b), do: err()
   def repeat(_a), do: err()
+  def put_string(_a), do: err()
 end
