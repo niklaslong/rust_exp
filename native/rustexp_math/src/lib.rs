@@ -17,6 +17,7 @@ rustler_export_nifs! {
     "Elixir.RustExp.Math",
     [
         ("add", 2, add),
+        ("add_tuple", 1, add_tuple),
         ("subtract", 2, subtract),
         ("multiply", 2, multiply),
         ("divide", 2, divide),
@@ -32,6 +33,13 @@ fn add<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
     let num2: i64 = try!(args[1].decode());
 
     Ok((atoms::ok(), num1 + num2).encode(env))
+}
+
+fn add_tuple<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let tup: (i64, i64) = try!(args[0].decode());
+    let (a, b) = tup;
+
+    Ok((atoms::ok(), a + b).encode(env))
 }
 
 fn multiply<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {

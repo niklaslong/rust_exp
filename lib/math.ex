@@ -21,6 +21,7 @@ defmodule RustExp.Math do
   # When your NIF is loaded, it will override this function.
   
   def add(_a, _b), do: err()
+  def add_tuple(_a), do: err()
   def subtract(_a, _b), do: err()
   def multiply(_a, _b), do: err()
   def divide(_a, _b), do: err()
