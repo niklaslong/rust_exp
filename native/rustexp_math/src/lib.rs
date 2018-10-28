@@ -1,12 +1,15 @@
-#[macro_use] extern crate rustler;
+#[macro_use]
+extern crate rustler;
 // #[macro_use] extern crate rustler_codegen;
-#[macro_use] extern crate lazy_static;
+#[macro_use]
+extern crate lazy_static;
 
-use rustler::{NifEnv, NifTerm, NifResult, NifEncoder};
+use rustler::{NifEncoder, NifEnv, NifResult, NifTerm};
 
 mod atoms {
     rustler_atoms! {
         atom ok;
+        atom nil;
         //atom error;
         //atom __true__ = "true";
         //atom __false__ = "false";
@@ -22,8 +25,8 @@ rustler_export_nifs! {
         ("multiply", 2, multiply),
         ("divide", 2, divide),
         ("repeat", 1, repeat),
-        ("put_string", 1, put_string)
-    
+        ("put_string", 1, put_string),
+        ("return_nil", 0, return_nil)
     ],
     None
 }
@@ -74,4 +77,9 @@ fn put_string<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a
     let result: String = format!("You said: {}", str1);
 
     Ok((atoms::ok(), result).encode(env))
+}
+
+fn return_nil<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
+    let result = String::from("hi");
+    Ok((atoms::nil(), result).encode(env))
 }

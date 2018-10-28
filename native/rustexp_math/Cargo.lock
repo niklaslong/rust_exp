@@ -1,15 +1,6 @@
-[root]
-name = "rustexp_math"
-version = "0.1.0"
-dependencies = [
- "lazy_static 0.2.9 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustler 0.15.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "rustler_codegen 0.15.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
 [[package]]
 name = "erlang_nif-sys"
-version = "0.6.2"
+version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "unreachable 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -22,7 +13,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "lazy_static"
-version = "0.2.9"
+version = "0.2.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -31,11 +22,20 @@ version = "0.3.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "rustexp_math"
+version = "0.1.0"
+dependencies = [
+ "lazy_static 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustler 0.15.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustler_codegen 0.15.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "rustler"
 version = "0.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "erlang_nif-sys 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "erlang_nif-sys 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static 0.1.16 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -85,9 +85,9 @@ version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
-"checksum erlang_nif-sys 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6895d619f32e53b4e4ed02bd6a841de401111f60a6cf1e6b2cdbacf819a32841"
+"checksum erlang_nif-sys 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)" = "9bc72dbc2c220693a2a009ec97705c144ea5cc5db703df43feb903663c999536"
 "checksum lazy_static 0.1.16 (registry+https://github.com/rust-lang/crates.io-index)" = "cf186d1a8aa5f5bee5fd662bc9c1b949e0259e1bcc379d1f006847b0080c7417"
-"checksum lazy_static 0.2.9 (registry+https://github.com/rust-lang/crates.io-index)" = "c9e5e58fa1a4c3b915a561a78a22ee0cac6ab97dca2504428bc1cb074375f8d5"
+"checksum lazy_static 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)" = "76f033c7ad61445c5b347c7382dd1237847eb1bce590fe50365dcb33d546be73"
 "checksum quote 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)" = "7a6e920b65c65f10b2ae65c831a81a073a89edd28c7cce89475bff467ab4167a"
 "checksum rustler 0.15.1 (registry+https://github.com/rust-lang/crates.io-index)" = "c9c618866bb92c22a30810b593809a41ee65640d82bca664954adcc2ed0a1cef"
 "checksum rustler_codegen 0.15.1 (registry+https://github.com/rust-lang/crates.io-index)" = "d7627a6cea2d3aa1146eeed1f99c794f2dc01ab7b7072896a1561ed730bb024d"

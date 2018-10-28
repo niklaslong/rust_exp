@@ -19,7 +19,7 @@ defmodule RustExp.Math do
   use Rustler, otp_app: :rust_exp, crate: :rustexp_math
   def err(), do: throw :nif_not_loaded
   # When your NIF is loaded, it will override this function.
-  
+
   def add(_a, _b), do: err()
   def add_tuple(_a), do: err()
   def subtract(_a, _b), do: err()
@@ -27,4 +27,5 @@ defmodule RustExp.Math do
   def divide(_a, _b), do: err()
   def repeat(_a), do: err()
   def put_string(_a), do: err()
+  def return_nil(), do: err()
 end
